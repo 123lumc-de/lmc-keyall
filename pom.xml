@@ -29,10 +29,11 @@
     </repositories>
 
     <dependencies>
+        <!-- Paper 26.2: neues Versionsschema, Range löst automatisch die neueste Build auf -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>26.2-R0.1-SNAPSHOT</version>
+            <version>[26.2.build,)</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
