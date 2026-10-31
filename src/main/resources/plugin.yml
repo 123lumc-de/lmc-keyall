@@ -1,0 +1,18 @@
+name: LMCKeyall
+version: 1.0.0
+main: de.lmcstudio.keyall.LMCKeyall
+api-version: '26.2'
+authors: [LMC Studio]
+description: Keyall plugin with roulette titles, database support and PlaceholderAPI.
+website: https://github.com/LMC-Studio/LMC-Keyall
+softdepend: [PlaceholderAPI]
+commands:
+  keyall:
+    description: Triggers a keyall or reloads config.
+    usage: /keyall <start|reload>
+    permission: lmc.keyall.admin
+permissions:
+  lmc.keyall.admin:
+    default: op
+  lmc.keyall.notify:
+    default: true

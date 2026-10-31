@@ -1,0 +1,67 @@
+# ============================================================
+#  LMC Keyall – by LMC Studio
+#  Doku: https://github.com/LMC-Studio/LMC-Keyall
+# ============================================================
+# WICHTIG: Nutze MiniMessage (z.B. <red>, <gradient:...>).
+# Legacy-Codes (&a, &6) funktionieren nur als Fallback,
+# wenn MiniMessage-Parsing fehlschlägt.
+# ============================================================
+
+database:
+  # h2 oder mysql
+  type: h2
+  mysql:
+    host: localhost
+    port: 3306
+    database: lmc_keyall
+    username: root
+    password: ""
+  h2:
+    file: "keyall"
+
+keyall:
+  # Automatischer Interval in Sekunden. 0 = deaktiviert (nur /keyall start)
+  interval-seconds: 3600
+  # Console-Command, der pro Spieler ausgeführt wird
+  # Platzhalter: %player%, %key%
+  reward-command: "give %player% diamond 1"
+  # Wenn true: Jeder Spieler bekommt einen Key (garantiert)
+  # Wenn false: Spieler können auch "nichts" gewinnen (siehe entries mit give-nothing)
+  broadcast-winners: false
+  # Gewichtete Zufallsauswahl. chance = Gewicht, NICHT Prozent.
+  entries:
+    - id: "common"
+      display: "&aCommon Key"
+      color: "GREEN"
+      chance: 70
+      give-nothing: false
+    - id: "rare"
+      display: "&bRare Key"
+      color: "AQUA"
+      chance: 25
+      give-nothing: false
+    - id: "legendary"
+      display: "&6Legendary Key"
+      color: "GOLD"
+      chance: 5
+      give-nothing: false
+
+roulette:
+  # Titel-Rotation in Ticks (20 ticks = 1 Sekunde)
+  interval-ticks: 4
+  # Gesamtdauer der Roulette-Animation in Ticks
+  duration-ticks: 60
+  title:
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+messages:
+  prefix: "<gradient:#FFD700:#FF8C00>[LMC Keyall]</gradient> "
+  no-permission: "<red>Du hast keine Berechtigung."
+  reloaded: "<green>Config neu geladen."
+  keyall-start: "<yellow>Ein Keyall wurde gestartet! Viel Glück!"
+  winner-personal: "<gold>Du hast <white>%key% <gold>gewonnen!"
+  winner-broadcast: "<gold>%player% <yellow>hat <white>%key% <gold>gewonnen!"
+  next-keyall: "<gray>Nächstes Keyall in: <yellow>%time%"
+  player-only: "<red>Dieser Befehl ist nur für Spieler."
